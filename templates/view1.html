@@ -1,0 +1,99 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+    crossorigin="anonymous"></script>
+{% load static %}
+{% static "image" as img %}
+
+<html>
+
+<body>
+    {% csrf_token %}
+    <!--
+        
+    <nav class="navbar navbar-light bg-light form-inline me-2">
+       
+            <form class="form-inline" method="get" action="/search">
+                <input class="form-control me-2" id="query" name="query" type="search" placeholder="Search"
+                    aria-label="Search">
+                <button class="btn btn-outline-success  my-sm-0" type="submit" id="b">Search</button>
+            </form>
+    
+       
+            <a class="btn btn-outline-success me-2" href="sort" id="sort">Sort</a>
+       
+    </nav>
+    
+ -->
+
+    <div class="dropdown my-2">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+            data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #198754">
+
+            More options..
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li>
+                <form class="form-inline" method="get" action="/search">
+                    <input class="form-control my-2" id="query" name="query" type="search" placeholder="Search"
+                        aria-label="Search">
+                    <button class="btn btn-outline-success  my-sm-0" type="submit" id="b">Search</button>
+                </form>
+            </li>
+            <li>
+                <a class="btn btn-outline-success me-2" href="sort" id="sort">Sort</a>
+            </li>
+
+        </ul>
+    </div>
+
+
+
+    <form method="POST" action="search">
+
+        <div class="container">
+            <table id="t" class="table table-bordered table table-success table-striped">
+                <tr>
+
+                    <th>Roll Number</th>
+                    <th>Fname</th>
+                    <th>Lname</th>
+                    <th>USN</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>Gender</th>
+                    <th>Department</th>
+                    <th>Image</th>
+                    <!--<th>Description</th> -->
+                </tr>
+                {% for i in obj %}
+
+                <tr>
+
+                    <td>{{i.rollnumber}}</td>
+                    <td>{{i.fname}}</td>
+                    <td>{{i.lname}}</td>
+                    <td>{{i.usn}}</td>
+                    <td>{{i.address}}</td>
+                    <td>{{i.city}}</td>
+                    <td>{{i.gender}}</td>
+                    <td>{{i.dep}}</td>
+                    <!--
+            {% if obj.img %}
+                <img src="{{ obj.img.url }}">
+            {% endif %}-->
+                    <td><img width='100' hieght='100 ' src="{{ i.img.url }}" /></td>
+
+
+                </tr>
+                {% endfor %}
+            </table>
+
+        </div>
+
+</body>
+
+</form>
+
+</html>

@@ -1,0 +1,86 @@
+<!-- CSS only  
+#45B8AC   
+
+#FF6F61
+-->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+<style>
+b{
+	
+	font-size: 15pt
+
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+}
+</style>
+<body>
+
+<div class="container">
+<form class="row g-3" method="POST" action="update">
+  {% csrf_token %} 
+  <div class="col-md-6" >
+    <label for="inputEmail4" class="form-label" ><b>First Name</b></label>
+    <input type="text" class="form-control" id="input1" name="fname">
+  </div>
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label"><b>Last Name</b></label>
+    <input type="text" class="form-control" id="input2" name="lname">
+  </div>
+
+
+  <div class="col-md-6">
+    <label for="inputEmail4" class="form-label"><b>Roll number</b></label>
+    <input type="text" class="form-control" id="inputEmail4" name="rollnumber">
+  </div>
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label"><b>USN</b></label>
+    <input type="text" class="form-control" id="input4" name="usn">
+  </div>
+
+
+  <div class="col-6">
+    <label for="inputAddress" class="form-label"><b>Address</b></label>
+    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" name="address">
+  </div>
+
+  <div class="col-md-6">
+    <label for="inputCity" class="form-label"><b>City</b></label>
+    <input type="text" class="form-control" id="inputCity" name="city">
+  </div>
+
+  <div class="col-md-6">
+    <label for="inputState" class="form-label"><b>Gender</b></label>
+    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="gender">
+      <option selected>Choose...</option>
+      <option>Male</option>
+      <option>Female</option>
+    </select>
+  </div>
+  <div class="col-md-6">
+  	<label for="inputState" class="form-label"><b>Department</b></label>
+  	<select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="dep">
+  		<option selected>Open this select menu</option>
+  		<option value="Computer Science and Engineering">Computer Science and Engineering</option>
+  		<option value="Electronics and Communication">Electronics and Communication</option>
+  		<option value="Mechanical Engineering">Mechanical Engineering</option>
+  		<option value="Civil Engineering">Civil Engineering</option>
+	</select>
+  </div>
+  
+  <div class="mb-3">
+  <label for="formFile" class="form-label"><b>Image</b></label>
+  <input class="form-control" type="file" id="formFile" name="img">
+</div>
+
+ <div class="col-12">
+    <button type="submit" value="submit" class="btn btn-primary"><strong>Submit</strong></button>
+  </div>
+</form>
+</div>
+</body>
